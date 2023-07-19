@@ -1,27 +1,3 @@
-
-.navbar {
-    text-align: left;
-    color:blueviolet;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 10px;
-    margin: 10px;
-}
-
-.quiz-title {
-    
-    color: black;
-    text-align: center;
-    margin: 20px 0 20px 0;
-    
-}
-
-.quiz-body{
-    text-align: center;
-    color: black;
-
-}
-.start-btn {
-    align-items: center;
+.hide {
+    display: none !important;
 }
