@@ -123,10 +123,11 @@ function submit(events) {
   userSubmition.push(userInput)
   console.log(userSubmition);
 
-  // console.log(userInput);
-  // userSubmition.push(userInput)
 
-  localStorage.setItem("initials and score", JSON.stringify(userSubmition))
+  localStorage.setItem("initials and score", JSON.stringify(userSubmition));
+  //test
+  userSubmition = JSON.parse(localStorage.getItem("initials and score")) || [];
+  displayHighScore();
 }
 
 function getLocalStorage() {
@@ -134,27 +135,47 @@ function getLocalStorage() {
   console.log(userSubmition);
 }
 getLocalStorage();
+
+
+// function displayHighScore() {
+//   //test
+//   var userSubmition = JSON.parse(localStorage.getItem("initials and score")) || [];
+//   userSubmition.forEach(element => {
+//     var highScoreItem = document.createElement("p");
+//     //places score element and initial values into highScoreItem el text. However it elements save in local storage, does not display the last submitted value.
+//     highScoreItem.textContent = element.initials + " " + element.score;
+//     endContainer.appendChild(highScoreItem);
+
+//   });
+// }
+// displayHighScore();
+
 function displayHighScore() {
-  userSubmition.forEach(element => {
+  var userSubmition = JSON.parse(localStorage.getItem("initials and score")) || [];
+  if (userSubmition.length !== 0) {
+    var element = userSubmition[userSubmition.length - 1]
     var highScoreItem = document.createElement("p");
-    //places score element and initials values into highScoreItem el text. Howsver it elements save in local storage, does not display the last submitted value.
     highScoreItem.textContent = element.initials + " " + element.score;
     endContainer.appendChild(highScoreItem);
+  } else {
+    var pel = document.createElement("p")
+    pel.innerText = "No high score available"
+    endContainer.appendChild(pel)
+  }
 
-  });
-}
-displayHighScore();
 
+ }
 var setTime = function () {
-  //change to 90
-  timeLeft = 20;
+  timeLeft = 50;
   var timerCheck = setInterval(function () {
     console.log("timer ticked");
     timeLeft--;
     timerEl.textContent = timeLeft;
-    if (timeLeft === 0) {
-      handleQuizEnd();
+    if (timeLeft <= 0) {
+      clearInterval(timerCheck)
+      timerEl.textContent = "Time is up!";
     }
+   
   }, 1000);
 }
 
@@ -168,7 +189,7 @@ function handleQuizEnd(score) {
   //Hides timer when 0 is reached
   timer <= 0;
   timerEl.classList.add("hide");
-  //questionsContainer.classList.add("hide");
+
 
 
 }
