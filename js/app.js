@@ -50,8 +50,6 @@ var globalIndex = 0;
 
 //Event listeners
 function handleClickStart(ev) {
-  // Reminder to delete console log
-  console.log("Quiz Started");
   setTime();
   questionsContainer.classList.remove("hide");
   startingContainer.style.display = "none";
@@ -61,7 +59,6 @@ btnStartEl.addEventListener("click", handleClickStart,);
 
 //show questions function
 function showQuestions(index) {
-  // line 63 allows next set of answer buttons to appear, if removed they pile up.
   answerbuttonsEl.innerHTML = " ";
   questionEl.textContent = questionArray[index].q;
   //show answer buttons
@@ -81,7 +78,7 @@ function showQuestions(index) {
         //adds points to score
         score = score + 4;
         globalIndex++;
-        questionStatus.textContent = "correct, 5 seconds added to timer!";
+        questionStatus.textContent = "Correct!";
 
       } else {
         console.log("wrong");
@@ -89,7 +86,7 @@ function showQuestions(index) {
         timeLeft = timeLeft - 5;
         score = score;
         globalIndex++;
-        questionStatus.textContent = "wrong, 5 seconds deducted from timer!";
+        questionStatus.textContent = "Wrong!";
 
       }
       if (questionArray.length > globalIndex) {
@@ -119,15 +116,15 @@ function submit(events) {
     initials: inputEl.value,
     score: score
 
-  }; // stores initials but does not display them.
+  };
   userSubmition.push(userInput)
-  console.log(userSubmition);
+  console.log(userSubmition); //remove this line 
 
 
   localStorage.setItem("initials and score", JSON.stringify(userSubmition));
   //test
   userSubmition = JSON.parse(localStorage.getItem("initials and score")) || [];
-  displayHighScore();
+  //displayHighScore();
 }
 
 function getLocalStorage() {
@@ -136,19 +133,6 @@ function getLocalStorage() {
 }
 getLocalStorage();
 
-
-// function displayHighScore() {
-//   //test
-//   var userSubmition = JSON.parse(localStorage.getItem("initials and score")) || [];
-//   userSubmition.forEach(element => {
-//     var highScoreItem = document.createElement("p");
-//     //places score element and initial values into highScoreItem el text. However it elements save in local storage, does not display the last submitted value.
-//     highScoreItem.textContent = element.initials + " " + element.score;
-//     endContainer.appendChild(highScoreItem);
-
-//   });
-// }
-// displayHighScore();
 
 function displayHighScore() {
   var userSubmition = JSON.parse(localStorage.getItem("initials and score")) || [];
