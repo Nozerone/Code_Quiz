@@ -8,25 +8,28 @@ a {
     text-decoration: none;
     flex: auto;
     margin-left: 20px;
-
 }
 h1 {
     font-size: xx-large;
     font-weight: 600 ;
-   width: 500px;
+    width: 500px;
+    display: block;
+    
+  
+    
 }
 h2 {
     font-size: xx-large;
     font-weight: 600;
 
 }
-h3,
-span {
-    display: flex;
-    justify-content: right;
-    margin-right: 20px;
 
+h3 {
+    display: inline-flex;
+    margin-right: 20px;
 }
+
+
 button {
     background-color: rgb(60, 4, 112);
     color: white;
@@ -46,6 +49,12 @@ div {
     align-items: center;
     text-align: center;
     margin: 70px;
+    display: list-item;
+    list-style: none !important;
+
+}
+.quiz-info {
+    display: contents;
 
 }
 .my-high-score {
@@ -53,7 +62,7 @@ div {
     text-align: left;
     font-size: larger;
     background-color: rgb(216, 194, 238);
-   margin-left: 80px;
+    margin-left: 80px;
 }
 .high-scores-div {
     flex: auto;

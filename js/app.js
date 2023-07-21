@@ -35,7 +35,9 @@ var currentQuestionIndex;
 
 
 
-var btnStartEl = document.getElementById("game-start")
+var btnStartEl = document.getElementById("game-start");
+//testing line 40, function to clear local storage
+var clearBtn = document.getElementById("clearBtn");
 
 
 //State variables
@@ -174,9 +176,15 @@ function handleQuizEnd(score) {
   timer <= 0;
   timerEl.classList.add("hide");
 
-
-
 }
+//The following lines stop game from starting.
+//Function to clear high scores from local storage
+// clearBtn.addEventListener("click", clearHighScores);
+
+// function clearHighScores(){
+// localStorage.removeItem("initials and score");
+// }
+
 
 //Constans, Quiz Questions arrays with answers inside array
 var questionArray = [
