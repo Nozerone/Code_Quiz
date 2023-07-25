@@ -4,10 +4,24 @@
     font-size: x-large;
 }
 
+#go-back-btn {
+    color: white;
+}
+button:hover {
+    background-color: rgb(179, 106, 246);
+    
+}
+#answer-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 a {
     text-decoration: none;
     flex: auto;
     margin-left: 20px;
+    color: rgb(182, 112, 247);
 }
 h1 {
     font-size: xx-large;
@@ -31,28 +45,28 @@ h3 {
 
 
 button {
-    background-color: rgb(60, 4, 112);
     color: white;
+    background-color: rgb(60, 4, 112);
     border-radius: 5px;
     border: 5px 15px 5px 15px;
     margin: 10px;
     padding: 5px 30px 5px 30px;
 
 }
-
-button:hover {
-    background-color: rgb(179, 106, 246);
-
+header {
+    display: flex;
+    justify-content: space-between;
 }
+
 
 div {
     align-items: center;
     text-align: center;
     margin: 70px;
-    display: list-item;
-    list-style: none !important;
+
 
 }
+
 .quiz-info {
     display: contents;
 
@@ -78,3 +92,5 @@ div {
 .hide {
     display: none !important;
 }
+
+
