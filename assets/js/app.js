@@ -1,7 +1,3 @@
-window.onload = function () {
-  console.log("starting");
-};
-
 var containerHighScoresEl = document.getElementById("high-score-container");
 var viewHighScoreEl = document.getElementById("view-high-scores");
 var listHighScoreEl = document.getElementById("high-score-list");
@@ -23,8 +19,6 @@ var timerEl = document.querySelector("#timer");
 var timeLeft = 0;
 var timer = 0;
 var score = 0;
-//This var isn't needed
-// var quizOver;
 timerEl.textContent = timeLeft;
 
 //High Score Array
@@ -36,8 +30,6 @@ var questionsIndex = 0;
 var currentQuestionIndex;
 
 var btnStartEl = document.getElementById("game-start");
-//testing line 40, function to clear local storage
-var clearBtn = document.getElementById("clearBtn");
 
 //State variables
 var rightAnswer = 0;
@@ -45,7 +37,6 @@ var wrongAnswer = 0;
 var timer = null;
 var timeLeft = 0;
 var globalIndex = 0;
-//Event functions
 
 //Event listeners
 function handleClickStart(ev) {
@@ -62,15 +53,11 @@ function showQuestions(index) {
   questionEl.textContent = questionArray[index].q;
   //show answer buttons
   questionArray[index].choices.forEach((element) => {
-    console.log(element);
     var answerBtn = document.createElement("button");
     answerBtn.textContent = element.choice;
     answerbuttonsEl.appendChild(answerBtn);
     answerBtn.addEventListener("click", function () {
-      console.log(answerBtn.textContent);
-
       if (answerBtn.textContent === questionArray[index].a) {
-        console.log("correct");
         //adds 5 seconds to clock.
         timeLeft = timeLeft + 5;
         //adds points to score
@@ -78,7 +65,6 @@ function showQuestions(index) {
         globalIndex++;
         questionStatus.textContent = "Correct!";
       } else {
-        console.log("wrong");
         //Deducts 5 seconds from clock.
         timeLeft = timeLeft - 5;
         score = score;
@@ -92,7 +78,7 @@ function showQuestions(index) {
         //hides clock but does not stop it. goes into negative values.
         timerEl.classList.add("hide");
         questionsContainer.classList.add("hide");
-        console.log("Quiz Ended");
+
         endContainer.classList.remove("hide");
       }
     });
@@ -105,23 +91,23 @@ var userSubmition = [];
 //Submit form function
 function submit(events) {
   events.preventDefault();
-  console.log(inputEl.value, score);
+
   var userInput = {
     initials: inputEl.value,
     score: score,
   };
   userSubmition.push(userInput);
-  console.log(userSubmition); //remove this line
 
   localStorage.setItem("initials and score", JSON.stringify(userSubmition));
   //test
   userSubmition = JSON.parse(localStorage.getItem("initials and score")) || [];
   //displayHighScore();
+  inputEl.value = "";
+  alert("your info has been saved");
 }
 
 function getLocalStorage() {
   userSubmition = JSON.parse(localStorage.getItem("initials and score")) || [];
-  console.log(userSubmition);
 }
 getLocalStorage();
 
@@ -142,7 +128,6 @@ function displayHighScore() {
 var setTime = function () {
   timeLeft = 50;
   var timerCheck = setInterval(function () {
-    console.log("timer ticked");
     timeLeft--;
     timerEl.textContent = timeLeft;
     if (timeLeft <= 0) {
@@ -225,5 +210,3 @@ var questionArray = [
     ],
   },
 ];
-
-//Go back buttom

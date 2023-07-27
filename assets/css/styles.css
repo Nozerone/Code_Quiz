@@ -7,10 +7,12 @@
 #go-back-btn {
     color: white;
 }
+
 button:hover {
     background-color: rgb(179, 106, 246);
-    
+
 }
+
 #answer-btns {
     display: flex;
     flex-direction: column;
@@ -23,24 +25,22 @@ a {
     margin-left: 20px;
     color: rgb(182, 112, 247);
 }
+
 h1 {
     font-size: xx-large;
-    font-weight: 600 ;
-    width: 500px;
+    font-weight: 600;
+    /* width: 500px; */
     display: block;
-    
-  
-    
 }
+
 h2 {
     font-size: xx-large;
     font-weight: 600;
-
 }
 
 h3 {
-    display: inline-flex;
-    margin-right: 20px;
+    margin: 20px;
+
 }
 
 
@@ -53,8 +53,10 @@ button {
     padding: 5px 30px 5px 30px;
 
 }
+
 header {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
@@ -63,7 +65,8 @@ div {
     align-items: center;
     text-align: center;
     margin: 70px;
-
+    display: inline-block;
+    margin-block: 10px;
 
 }
 
@@ -71,18 +74,21 @@ div {
     display: contents;
 
 }
+
 .my-high-score {
     width: 400px;
-    text-align: left;
+
     font-size: larger;
     background-color: rgb(216, 194, 238);
     margin-left: 80px;
 }
+
 .high-scores-div {
     flex: auto;
     display: inline-block;
     justify-content: space-around;
 }
+
 .correct,
 .wrong {
     font-weight: lighter;
@@ -93,4 +99,7 @@ div {
     display: none !important;
 }
 
-
+.timer-section {
+    display: flex;
+    flex-flow: row-reverse;
+}
